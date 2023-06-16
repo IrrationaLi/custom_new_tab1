@@ -33,7 +33,6 @@ $( "#search" ).on("focusout", async function() {
     } else {
     	out = 100;
     };
-    console.log(out);
     for (let i = out; i >=0; i--) {
     	$("#sl2").css({ "left": (i/2).toString()+"%","width": i.toString()+"%"});
         start=i;
