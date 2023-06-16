@@ -21,7 +21,7 @@ $( "#search" ).on("focus", async function() {
 	for (let i = inn; i <=100; i++) {
     	$("#sl2").css({ "left": (i/2).toString()+"%","width": i.toString()+"%"});
         end = i;
-		await sleep(5);
+		await sleep(0.5);
         if(document.activeElement !== document.getElementById('search')){
     		return false;
 		}
@@ -36,7 +36,7 @@ $( "#search" ).on("focusout", async function() {
     for (let i = out; i >=0; i--) {
     	$("#sl2").css({ "left": (i/2).toString()+"%","width": i.toString()+"%"});
         start=i;
-    	await sleep(5);
+    	await sleep(0.5);
         if(document.activeElement === document.getElementById('search')){
             return false;
         }
