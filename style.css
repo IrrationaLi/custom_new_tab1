@@ -1,0 +1,31 @@
+#search {
+    position:absolute;
+    transform: translate(-50%,-50%);
+    top:10%;
+    left:50%;
+    width:50%;
+    height:5%;
+    border:none;
+    outline:none;
+}
+#searchline {
+    position:absolute;
+    display:flex;
+    transform: translate(-50%,-50%);
+    top:12%;
+    left:50%;
+    width:52%;
+    height:0.8%;
+    border:none;
+    background-color:rgba(255,0,0,0.3);
+}
+#sl2 {
+	position:absolute;
+    transform: translate(-50%,-50%);
+    top:50%;
+    left:0%; /*half of width*/
+    width:0%;
+    height:100%;
+    border:none;
+    background-color:rgba(255,0,0,1);
+}
