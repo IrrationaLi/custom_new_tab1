@@ -4,10 +4,42 @@ $(document).on("keypress", "input", function(e){
 		window.location.href="https://www.google.com/search?q="+encodeURIComponent(inputVal)+"&sourceid=chrome&ie=UTF-8&oe=UTF-8";
 	}
 });
-$( "#search" ).on( "focus", function() {
-  console.log( "%cHandler for `focus` called.","color:red;font-size:10px;font-family:'copperplate',fantasy;");
-});
 
-$( "#search" ).on( "focusout", function() {
-  console.log( "%cHandler for `focusout` called.","color:yellow;font-size:10px;font-family:'papyrus',fantasy;");
+function sleep(ms) { //thank you @Shehroz30
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+let end = 0;
+let start = 0;
+let out = 0;
+let inn = 0;
+$( "#search" ).on("focus", async function() {
+    if (start>0){
+        inn = start;
+    } else {
+        inn = 0;
+    }
+    for (let i = inn; i <=100; i++) {
+    	$("#sl2").css({ "left": (i/2).toString()+"%","width": i.toString()+"%"});
+        end = i;
+		await sleep(5);
+        if(document.activeElement !== document.getElementById('search')){
+            return false;
+        }
+    };
+});
+$( "#search" ).on("focusout", async function() {
+    if (end<100){
+        out = end;
+    } else {
+        out = 100;
+    };
+    console.log(out);
+    for (let i = out; i >=0; i--) {
+    	$("#sl2").css({ "left": (i/2).toString()+"%","width": i.toString()+"%"});
+        start=i;
+    	await sleep(5);
+        if(document.activeElement === document.getElementById('search')){
+            return false;
+        }
+    };
 });
