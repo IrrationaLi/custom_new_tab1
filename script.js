@@ -13,25 +13,25 @@ let start = 0;
 let out = 0;
 let inn = 0;
 $( "#search" ).on("focus", async function() {
-    if (start>0){
-        inn = start;
+	if (start>0){
+    	inn = start;
     } else {
-        inn = 0;
+		inn = 0;
     }
-    for (let i = inn; i <=100; i++) {
+	for (let i = inn; i <=100; i++) {
     	$("#sl2").css({ "left": (i/2).toString()+"%","width": i.toString()+"%"});
         end = i;
 		await sleep(5);
         if(document.activeElement !== document.getElementById('search')){
-            return false;
-        }
-    };
+    		return false;
+		}
+	};
 });
 $( "#search" ).on("focusout", async function() {
-    if (end<100){
-        out = end;
+	if (end<100){
+		out = end;
     } else {
-        out = 100;
+    	out = 100;
     };
     console.log(out);
     for (let i = out; i >=0; i--) {
